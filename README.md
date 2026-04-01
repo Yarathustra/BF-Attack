@@ -41,6 +41,7 @@ bash validation.sh
 
 ## 📊 Experimental Results
 
+The following table summarizes the attack success rates (%) of black-box attacks against six normally trained models. The adversarial examples are crafted using an ensemble of Inc-v3, Inc-v4, IncRes-v2, and Res-152.
 ![The following table summarizes the attack success rates (%) of black-box attacks against six normally trained models. The adversarial examples are crafted using an ensemble of Inc-v3, Inc-v4, IncRes-v2, and Res-152.](fig1.png)
 
 ## 📜 Citation
