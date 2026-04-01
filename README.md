@@ -44,6 +44,8 @@ bash validation.sh
 The following table summarizes the attack success rates (%) of black-box attacks against six normally trained models. The adversarial examples are crafted using an ensemble of Inc-v3, Inc-v4, IncRes-v2, and Res-152.
 ![The following table summarizes the attack success rates (%) of black-box attacks against six normally trained models. The adversarial examples are crafted using an ensemble of Inc-v3, Inc-v4, IncRes-v2, and Res-152.](fig1.png)
 
+The following table summarizes the attack success rates (%) of black-box attacks against nine multimodal models (CLIPs). The adversarial examples are crafted via CLIP-ViT-B-16, CLIP-RES50 and SigCLIP.
+![The following table summarizes the attack success rates (%) of black-box attacks against nine multimodal models (CLIPs). The adversarial examples are crafted via CLIP-ViT-B-16, CLIP-RES50 and SigCLIP.](fig2.png)
 ## 📜 Citation
 
 The manuscript is currently under review at Information Fusion. The citation and link will be updated once available.
