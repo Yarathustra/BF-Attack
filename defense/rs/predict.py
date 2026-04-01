@@ -37,23 +37,54 @@ if __name__ == "__main__":
 
     # prepare output file
     succ = total = 0.
+    all_predictions = []
+    all_filenames = []
+
     for batch_idx, [filenames, images] in tqdm.tqdm(enumerate(load_images(args.input, args.batch))):
         labels = get_labels(filenames, f2l)
         images = images.cuda()
-        prediction = smoothed_classifier.predict(images, args.N, args.alpha, args.batch)
-        if prediction == labels + 1:
-            succ += 1 # defense succeeded
-        total += labels.shape[0]
-        if total % 200 == 0:
+
+        # 处理batch中的每个图像
+        for i in range(images.shape[0]):
+            img = images[i:i+1]  # 保持维度
+            # 获取label并转换为标量
+            if isinstance(labels, torch.Tensor):
+                label = labels[i].item()
+            else:
+                label = labels[i]
+            filename = filenames[i] if isinstance(filenames, list) else filenames
+
+            # predict返回0-999的类别索引，或者ABSTAIN(-1)
+            prediction = smoothed_classifier.predict(img, args.N, args.alpha, 1)
+
+            # 保存预测结果（转换为1-1000以匹配HGD格式）
+            if prediction == Smooth.ABSTAIN:
+                pred_output = -1  # ABSTAIN标记为-1，便于识别
+            else:
+                pred_output = int(prediction) + 1  # 转换为1-1000
+
+            all_predictions.append(pred_output)
+            all_filenames.append(os.path.basename(filename))
+
+            # 统计成功率（prediction和label都是0-999）
+            # ABSTAIN算作分类错误
+            if prediction != Smooth.ABSTAIN and prediction == label:
+                succ += 1
+            total += 1
+
+        if total % 200 == 0 and total > 0:
             if not args.targeted:
                 print("Attack Success Rate: {:.2f}%".format(100. * (total - succ) / total))
             else:
                 print("Attack Success Rate: {:.2f}%".format(100. * succ / total))
 
-    
+    # 写入输出文件
+    with open(args.outfile, 'w') as f:
+        for filename, pred in zip(all_filenames, all_predictions):
+            f.write(f'{filename},{pred}\n')
+
     print(args.input)
     if not args.targeted:
         print("=>Final Attack Success Rate: {:.2f}%".format(100. * (total - succ) / total))
     else:
         print("=>Final Attack Success Rate: {:.2f}%".format(100. * succ / total))
-    # print("=>Final Attack Success Rate: {:.2f}%".format(100. * (total - succ) / total)) # attack success rate

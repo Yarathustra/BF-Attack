@@ -65,11 +65,10 @@ def main():
         print("Error: Please specify an output file")
         exit(-1)
 
-    path_dir = args.output_file.split('/')[0]
-    if os.path.exists(path_dir):
-        pass
-    else:
-        os.mkdir(path_dir)
+    # 确保输出文件的父目录存在
+    path_dir = os.path.dirname(args.output_file)
+    if path_dir:  # 如果有父目录路径
+        os.makedirs(path_dir, exist_ok=True)
 
     tf = transforms.Compose([
            transforms.Resize([299,299]),

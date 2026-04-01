@@ -1,5 +1,14 @@
 import torch
-from scipy.stats import norm, binom_test
+from scipy.stats import norm
+try:
+    # scipy >= 1.7
+    from scipy.stats import binomtest
+    def binom_test(x, n, p):
+        """Wrapper for compatibility with older scipy versions"""
+        return binomtest(x, n, p).pvalue
+except ImportError:
+    # scipy < 1.7
+    from scipy.stats import binom_test
 import numpy as np
 from math import ceil
 from statsmodels.stats.proportion import proportion_confint

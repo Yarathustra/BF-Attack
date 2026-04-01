@@ -115,7 +115,8 @@ def load_images(input_dir, batch_size):
 def get_labels(names, f2l):
     labels = []
     for name in names:
-        labels.append(f2l[name]-1)
+        # CSV中的label是0-999，保持不变
+        labels.append(f2l[name])
     return torch.from_numpy(np.array(labels, dtype=np.int64))
 
 def load_labels(file_name, targeted=False):

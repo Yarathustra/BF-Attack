@@ -54,3 +54,9 @@ venv.bak/
 *.pt
 *.ckpt
 *.h5
+https:/https:/
+__pycache__/
+*.safetensors
+
+git remote set-url origin https://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@github.com/Yarathustra/BF-Attack.gitdata/
+data/

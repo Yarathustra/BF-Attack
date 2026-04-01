@@ -12,12 +12,25 @@ import os
 img_height, img_width = 224, 224
 img_max, img_min = 1., 0
 
-cnn_model_paper = ['resnet50', 'resnet101', 'resnet152', 'vgg16', 'mobilenet_v2',
-                   'inception_v3', 'inception_v4', 'inception_resnet_v2', 'inception_resnet_v2.tf_ens_adv_in1k']
-vit_model_paper = [#'vit_small_patch16_224', 'vit_base_patch16_224', 'vit_large_patch16_224',
-                   #'deit_tiny_patch16_224', 'deit_small_patch16_224', 'deit_base_patch16_224', 'deit_base_distilled_patch16_224',
-                   #'tnt_s_patch16_224', 'pit_b_224', 'visformer_small',
-                   #'swin_tiny_patch4_window7_224', 'swin_small_patch4_window7_224', 'swin_base_patch4_window7_224'
+cnn_model_paper = [
+    # 'resnet50', 'resnet101',
+    'resnet152', 
+                #    'vgg16', 'mobilenet_v2',
+                #    'inception_v3', 'inception_v4', 'inception_resnet_v2', 
+                #    'inception_resnet_v2.tf_ens_adv_in1k'
+                   ]
+vit_model_paper = [
+    # 'vit_small_patch16_224',
+    # 'vit_base_patch16_224',
+    # 'vit_large_patch16_224',
+    #                'deit_tiny_patch16_224', 'deit_small_patch16_224', 
+    #                'deit_base_patch16_224', 
+                #    'deit_base_distilled_patch16_224',
+                #    'tnt_s_patch16_224',
+                   # 'pit_b_224', 'visformer_small',
+                #    'swin_tiny_patch4_window7_224', 
+                #    'swin_small_patch4_window7_224', 
+                #    'swin_base_patch4_window7_224'
                    ]
 
 cnn_model_pkg = [#'vgg19', 'resnet18', 'resnet50', 'resnet101', 'resnet152',
@@ -31,12 +44,17 @@ vit_model_pkg = [
                  #'swin_tiny_patch4_window7_224', 'swin_small_patch4_window7_224', 'swin_base_patch4_window7_224'
                  ]
 
-tgr_vit_model_list = [#'vit_base_patch16_224', 'pit_b_224', 'cait_s24_224', 'visformer_small',
-                      #'deit_base_distilled_patch16_224', 'tnt_s_patch16_224', 'levit_256', 'convit_base'
+tgr_vit_model_list = [
+    # 'vit_base_patch16_224', 'pit_b_224', 'cait_s24_224', 'visformer_small',
+                    #   'deit_base_distilled_patch16_224', 'tnt_s_patch16_224', 'levit_256', 'convit_base'
                       ]
 
-clip_model_list = ['clip_rn50', 'clip_rn101', 'clip_rn50x4', 'clip_rn50x16', 'clip_rn50x64',
-                   'clip_vit_b_32', 'clip_vit_b_16', 'clip_vit_l_14', 'siglip_vit_b_16']
+clip_model_list = [
+    # 'clip_rn50','clip_rn101', 'clip_rn50x4', 'clip_rn50x16', 'clip_rn50x64',
+    # 'clip_vit_b_16','clip_vit_b_32','clip_vit_l_14', 'siglip_vit_b_16'
+    # 'clip_rn50', 'clip_rn101', 'clip_rn50x4', 'clip_rn50x16', 'clip_rn50x64',
+    #                'clip_vit_b_32', 'clip_vit_b_16', 'clip_vit_l_14', 'siglip_vit_b_16'
+                   ]
 
 generation_target_classes = [24, 99, 245, 344, 471, 555, 661, 701, 802, 919]
 
