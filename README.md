@@ -22,6 +22,7 @@ pip install git+[https://github.com/openai/CLIP.git](https://github.com/openai/C
 # Install other required dependencies
 pip install -r requirements.txt
 
+```
 ## 🚀 Usage
 
 1. Generating Adversarial Perturbations
@@ -29,16 +30,18 @@ To craft adversarial examples using the BF-Attack module, run the following scri
 
 ```bash
 bash attack.sh
+```
 
 2. Evaluating Attack Success Rate (ASR)
 To verify the performance of the generated samples against various target models, run:
 
 ```bash
 bash validation.sh
+```
 
 ## 📊 Experimental Results
 
-The following table summarizes the attack success rates (%) of black-box attacks against six normally trained models. The adversarial examples are crafted using an ensemble of Inc-v3, Inc-v4, IncRes-v2, and Res-152.
+![The following table summarizes the attack success rates (%) of black-box attacks against six normally trained models. The adversarial examples are crafted using an ensemble of Inc-v3, Inc-v4, IncRes-v2, and Res-152.](fig1.png)
 
 ## 📜 Citation
 
