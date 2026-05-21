@@ -48,7 +48,7 @@ The following table summarizes the attack success rates (%) of black-box attacks
 ![The following table summarizes the attack success rates (%) of black-box attacks against nine multimodal models (CLIPs). The adversarial examples are crafted via CLIP-ViT-B-16, CLIP-RES50 and SigCLIP.](fig2.png)
 ## 📜 Citation
 
-The manuscript is currently under review at Information Fusion. The citation and link will be updated once available.
+The manuscript is currently under review at Neural Networks. The citation and link will be updated once available.
 
 ## ⚖️ License
 This project is licensed under the MIT License - see the LICENSE file for details. This repository incorporates code from the TransferAttack project.
